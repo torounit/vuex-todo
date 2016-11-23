@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "bs": "browser-sync start --server ./public --files 'public/**/*.*' --no-notify",
+    "js:build": "rollup -c",
+    "js:watch": "rollup -c -w",
+    "html:build": "pug src/*.pug -o public",
+    "html:watch": "pug src/*.pug -o public -w",
+    "image:build": "imagemin src/images/* --out-dir=public/images",
+    "build": "npm run js:build & npm run image:build & npm run html:build",
+    "watch": "npm run js:watch & npm run html:watch",
+    "start": "npm run build && npm run bs & npm run watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^5.0.0",
+    "vue": "^2.0.0",
+    "vuex": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "browser-sync": "^2.13.0",
+    "imagemin-cli": "^3.0.0",
+    "postcss-cssnext": "^2.7.0",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^8.1.2",
+    "postcss-sassy-import": "^1.2.3",
+    "postcss-scss": "^0.4.0",
+    "postcss-url": "^5.1.2",
+    "pug": "^2.0.0-beta4",
+    "pug-cli": "^1.0.0-alpha6",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-env": "^0.21.2",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-postcss": "^0.2.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-vue2": "^0.5.0",
+    "rollup-watch": "^2.5.0",
+    "stylus": "^0.54.5"
+  }
+}
