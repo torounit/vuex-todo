@@ -1,17 +1,42 @@
 <template>
   <div>
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <div class="">
+
+      <input class="new-todo"
+             autofocus
+             autocomplete="off"
+             placeholder="What needs to be done?"
+             @keyup.enter="addTodo">
+    </div>
+    <div>
+      <Todo v-for="todo in todos" :text="todo.text" />
+    </div>
   </div>
 </template>
 
 <script>
-  import Hello from './components/Hello'
+  import Todo from './components/Todo'
+//  import { mapMutations } from 'vuex'
 
   export default {
     name: 'app',
     components: {
-      Hello
+      Todo
+    },
+    computed: {
+      todos () {
+        return this.$store.state.todos
+      }
+    },
+    methods: {
+      addTodo (e) {
+        var text = e.target.value
+        console.log(this.$store)
+        if (text.trim()) {
+          this.$store.commit('addTodo', { text })
+        }
+        e.target.value = ''
+      }
     }
   }
 </script>
@@ -27,10 +52,5 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
 
   :local {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
   }
 </style>

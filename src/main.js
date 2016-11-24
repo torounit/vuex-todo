@@ -1,10 +1,9 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import App from './App'
-
-Vue.use(Vuex);
+import store from './store'
 
 export default new Vue({
+  store,
   el: '#app',
   template: '<App/>',
   components: { App }
