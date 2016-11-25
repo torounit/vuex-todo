@@ -2,11 +2,14 @@
   <div>
     <div class="">
 
-      <input class="new-todo"
-             autofocus
-             autocomplete="off"
-             placeholder="What needs to be done?"
-             @keyup.enter="addTodo">
+      <input
+        class="new-todo"
+        autofocus
+        autocomplete="off"
+        placeholder="What needs to be done?"
+        v-model="value"
+        @keyup.enter="addTodo(value)"
+      >
     </div>
     <div>
       <Todo v-for="todo in todos" :text="todo.text" />
@@ -16,7 +19,7 @@
 
 <script>
   import Todo from './components/Todo'
-//  import { mapMutations } from 'vuex'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'app',
@@ -28,16 +31,9 @@
         return this.$store.state.todos
       }
     },
-    methods: {
-      addTodo (e) {
-        var text = e.target.value
-        console.log(this.$store)
-        if (text.trim()) {
-          this.$store.commit('addTodo', { text })
-        }
-        e.target.value = ''
-      }
-    }
+    methods: mapActions([
+      'addTodo'
+    ])
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
