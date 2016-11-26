@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "getbasis": "^3.0.0",
     "normalize.css": "^5.0.0",
     "vue": "^2.1.0",
     "vuex": "^2.0.0"
@@ -82,7 +83,7 @@
     "webpack-merge": "^0.17.0"
   },
   "engines": {
-    "node": ">= 4.0.0",
+    "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   }
 }

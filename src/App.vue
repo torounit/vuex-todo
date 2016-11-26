@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <div class="">
-
-      <input
-        class="new-todo"
-        autofocus
-        autocomplete="off"
-        placeholder="What needs to be done?"
-        v-model="value"
-        @keyup.enter="addTodo(value)"
-      >
-    </div>
-    <div>
-      <Todo v-for="todo in todos" :text="todo.text" />
+  <div class="app">
+    <input
+      class="app__input"
+      autofocus
+      autocomplete="off"
+      placeholder="What needs to be done?"
+      v-model="value"
+      @keyup.enter="addTodo(value)"
+    >
+    <div class="app__todo">
+      <Todo
+        v-for="todo in todos"
+        :text="todo.text"
+        :done="todo.done"
+        @toggle="toggleTodo(todo)"
+      />
     </div>
   </div>
 </template>
@@ -32,7 +34,8 @@
       }
     },
     methods: mapActions([
-      'addTodo'
+      'addTodo',
+      'toggleTodo'
     ])
   }
 </script>
@@ -41,12 +44,36 @@
 
   :root {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    background-color: #EEE;
   }
 
 </style>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  .app {
+    margin 20px;
 
-  :local {
+
+  }
+
+  .app__input {
+    display block
+    width 100%
+    box-sizing border-box
+    padding 16px
+    border: none
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px
+    background-color: #fff
+  }
+
+  .app__todo {
+    display block
+    background-color: #fff
+    width 100%
+    box-sizing border-box
+    border: none
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
   }
 </style>
