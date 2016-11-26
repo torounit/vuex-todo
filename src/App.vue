@@ -14,6 +14,7 @@
         :text="todo.text"
         :done="todo.done"
         @toggle="toggleTodo(todo)"
+        @delete="deleteTodo(todo)"
       />
     </div>
   </div>
@@ -35,7 +36,8 @@
     },
     methods: mapActions([
       'addTodo',
-      'toggleTodo'
+      'toggleTodo',
+      'deleteTodo'
     ])
   }
 </script>
