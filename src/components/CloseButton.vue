@@ -1,5 +1,5 @@
 <template>
-  <button class="closeButton"
+  <button class="CloseButton"
           @click="$emit('click')">
   </button>
 
@@ -7,7 +7,7 @@
 
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  .closeButton {
+  .CloseButton {
     border none;
     background-color: transparent
     position: relative;

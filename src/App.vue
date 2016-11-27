@@ -1,37 +1,57 @@
 <template>
-  <div class="app">
+  <div class="App">
     <input
-      class="app__input"
+      class="App__input"
       autofocus
       autocomplete="off"
       placeholder="What needs to be done?"
       v-model="value"
       @keyup.enter="addTodo(value)"
     >
-    <div class="app__todo">
+    <div class="App__box">
       <Todo
-        v-for="todo in todos"
+        v-for="todo in filteredTodos"
         :text="todo.text"
         :done="todo.done"
         @toggle="toggleTodo(todo)"
         @delete="deleteTodo(todo)"
       />
     </div>
+
+    <div class="App__box">
+     <TodoFilter />
+    </div>
   </div>
 </template>
 
 <script>
   import Todo from './components/Todo'
+  import TodoFilter from './components/TodoFilter'
   import { mapActions } from 'vuex'
 
+  const filters = {
+    ALL: todos => todos,
+    ACTIVE: todos => todos.filter(todo => !todo.done),
+    COMPLETED: todos => todos.filter(todo => todo.done)
+  }
+
   export default {
-    name: 'app',
+    name: 'App',
     components: {
-      Todo
+      Todo,
+      TodoFilter
+    },
+    data () {
+      return {
+        filters: filters
+      }
     },
     computed: {
       todos () {
         return this.$store.state.todos
+      },
+      filteredTodos () {
+        return filters[this.$store.state.filter](this.todos)
       }
     },
     methods: mapActions([
@@ -52,30 +72,31 @@
 </style>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  .app {
+  .App {
     margin 20px;
 
 
   }
 
-  .app__input {
+  .App__input {
     display block
     width 100%
     box-sizing border-box
     padding 16px
     border: none
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    margin-bottom: 16px
+    margin: 16px 0
     background-color: #fff
   }
 
-  .app__todo {
+  .App__box {
+    margin: 16px 0
     display block
     background-color: #fff
     width 100%
     box-sizing border-box
     border: none
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-
   }
+
 </style>

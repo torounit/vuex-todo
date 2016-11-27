@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLE_TODO, DELETE_TODO} from '../mutation-types';
+import {ADD_TODO, TOGGLE_TODO, DELETE_TODO, SELECT_FILTER} from '../mutation-types';
 
 export const addTodo = ({ commit }, text) => {
   if (text) {
@@ -17,5 +17,11 @@ export const toggleTodo = ({ commit }, todo) => {
 export const deleteTodo = ({ commit }, todo) => {
   commit(DELETE_TODO, {
     todo
+  })
+}
+
+export const selectFilter = ({ commit }, filter) => {
+  commit(SELECT_FILTER, {
+    filter
   })
 }

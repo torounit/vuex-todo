@@ -1,13 +1,13 @@
 <template>
-  <div class="todo">
+  <div class="Todo">
     <input
       type="checkbox"
-      class="todo__done"
+      class="Todo__done"
       :checked="done"
       @click="$emit('toggle')"
     />
-    <div class="todo__text">{{ text }}</div>
-    <div class="todo__delete">
+    <div class="Todo__text">{{ text }}</div>
+    <div class="Todo__delete">
       <CloseButton  @click="$emit('delete')" />
     </div>
   </div>
@@ -17,7 +17,7 @@
 <script>
   import CloseButton from './CloseButton'
   export default {
-    name: 'todo',
+    name: 'Todo',
     props: {
       text: '',
       done: false
@@ -29,7 +29,7 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  .todo {
+  .Todo {
     padding 16px;
     width 100%;
     box-sizing border-box;
@@ -37,7 +37,7 @@
     display flex
   }
 
-  .todo__text {
+  .Todo__text {
     padding 0 4px
     flex: 1 0 auto;
   }
