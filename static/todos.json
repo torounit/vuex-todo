@@ -1,4 +1,10 @@
 [
-  { "text": "Foo", "done": "true "},
-  { "text": "Bar", "done": "false" }
+  {
+    "text": "Foo",
+    "done": true
+  },
+  {
+    "text": "Bar",
+    "done": false
+  }
 ]

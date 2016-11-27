@@ -7,9 +7,12 @@ import plugins from './plugins';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state,
   mutations,
   plugins,
   actions
 })
+
+store.dispatch('fetchTodo')
+export default store;
