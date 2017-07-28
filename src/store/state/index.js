@@ -1,4 +1,5 @@
 export default {
   todos: [],
-  filter: 'ALL'
+  filter: 'ALL',
+  input: ''
 }

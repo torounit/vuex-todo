@@ -29,13 +29,13 @@
 </script>
 
 
-<style scoped lang="stylus" rel="stylesheet/stylus">
-.TodoFilter {
-  display block
-  width 100%
-  box-sizing border-box
-  border none
-  height 2.5em
-}
+<style scoped>
+  .TodoFilter {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    height: 2.5em;
+  }
 </style>
 

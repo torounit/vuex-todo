@@ -1,4 +1,3 @@
-
 {
   "name": "vuex-todo",
   "version": "1.0.0",
@@ -15,7 +14,6 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "getbasis": "^6.4.0",
     "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^7.0.0",
     "vue": "^2.3.3",
