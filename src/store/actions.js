@@ -1,5 +1,5 @@
 import {ADD_TODO, TOGGLE_TODO, DELETE_TODO, FETCH_TODO, SELECT_FILTER} from './mutation-types';
-
+import fetch from 'isomorphic-fetch'
 export const fetchTodo = async ({commit}) => {
   let response = await fetch('/static/todos.json')
   let todos = await response.json()

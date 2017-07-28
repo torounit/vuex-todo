@@ -1,10 +1,10 @@
 [
   {
-    "text": "Foo",
+    "text": "Hoge",
     "done": true
   },
   {
-    "text": "Bar",
+    "text": "Piyo",
     "done": false
   }
 ]

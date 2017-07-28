@@ -13,6 +13,4 @@ const store = new Vuex.Store({
   plugins,
   actions
 })
-
-store.dispatch('fetchTodo')
 export default store;
