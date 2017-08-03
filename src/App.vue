@@ -5,7 +5,7 @@
       autofocus
       autocomplete="off"
       placeholder="What needs to be done?"
-      @keyup.enter="addTodo"
+      @keydown.enter="addTodo"
     >
     <div class="App__box">
       <Todo
@@ -27,8 +27,7 @@
 <script>
   import Todo from './components/Todo'
   import TodoFilter from './components/TodoFilter'
-  import { mapActions } from 'vuex'
-  import { ADD_TODO } from './store/mutation-types'
+  import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from './store/mutation-types'
 
   const filters = {
     ALL: todos => todos,
@@ -56,12 +55,19 @@
       }
     },
     methods: {
-      ...mapActions([
-        'toggleTodo',
-        'deleteTodo'
-      ]),
+
       addTodo (e) {
-        this.$store.commit(ADD_TODO, {text: e.target.value})
+        let text = e.target.value.trim()
+        if (text) {
+          e.target.value = ''
+          this.$store.commit(ADD_TODO, {text})
+        }
+      },
+      toggleTodo (todo) {
+        this.$store.commit(TOGGLE_TODO, {todo})
+      },
+      deleteTodo (todo) {
+        this.$store.commit(DELETE_TODO, {todo})
       }
     }
   }
