@@ -1,13 +1,16 @@
-import {ADD_TODO, TOGGLE_TODO, DELETE_TODO, FETCH_TODO, SELECT_FILTER} from './mutation-types'
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, FETCH_TODO, SELECT_FILTER } from './mutation-types'
+
 export default {
   [FETCH_TODO] (state, {todos}) {
     state.todos = todos
   },
   [ADD_TODO] (state, {text}) {
-    state.todos.push({
-      text,
-      done: false
-    })
+    if (state.todos.map(todo => todo.text).indexOf(text) === -1) {
+      state.todos.push({
+        text,
+        done: false
+      })
+    }
   },
   [TOGGLE_TODO] (state, {todo}) {
     todo.done = !todo.done
