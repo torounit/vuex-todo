@@ -4,7 +4,7 @@
       class="App__input"
       autofocus
       autocomplete="off"
-      placeholder="What needs to be done?"
+      placeholder="入力して下さい"
       @keydown.enter="addTodo"
     >
     <div class="App__box">
