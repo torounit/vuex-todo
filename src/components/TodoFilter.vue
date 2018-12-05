@@ -4,7 +4,7 @@
     v-model="value"
     @change="selectFilter(value)"
   >
-    <option v-for="filter in filters">{{ filter }}</option>
+    <option v-for="(filter,index) in filters" :key="index">{{ filter }}</option>
   </select>
 </template>
 

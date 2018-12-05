@@ -19,8 +19,14 @@
   export default {
     name: 'Todo',
     props: {
-      text: '',
-      done: false
+      text: {
+        type: String,
+        default: '',
+      },
+      done: {
+        type: Boolean,
+        default: false,
+      },
     },
     components: {
       CloseButton
