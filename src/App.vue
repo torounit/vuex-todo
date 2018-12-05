@@ -27,7 +27,7 @@
 <script>
   import Todo from './components/Todo'
   import TodoFilter from './components/TodoFilter'
-  import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from './store/mutation-types'
+  import { mapActions } from 'vuex'
 
   const filters = {
     ALL: todos => todos,
@@ -55,20 +55,17 @@
       }
     },
     methods: {
-
+      ...mapActions([
+        'deleteTodo',
+        'toggleTodo',
+      ]),
       addTodo (e) {
         let text = e.target.value.trim()
         if (text) {
           e.target.value = ''
-          this.$store.commit(ADD_TODO, {text})
+          this.$store.dispatch('addTodo', text);
         }
       },
-      toggleTodo (todo) {
-        this.$store.commit(TOGGLE_TODO, {todo})
-      },
-      deleteTodo (todo) {
-        this.$store.commit(DELETE_TODO, {todo})
-      }
     }
   }
 </script>
